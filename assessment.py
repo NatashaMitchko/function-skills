@@ -96,6 +96,18 @@ def foods_in_common(foods1, foods2):
                 common_foods.append(f1)
 
 # TODO: figure out how to order the items
+    N = len(common_foods)
+
+    for i in range(1, N):
+        switches = 0
+        for j in range(0, N-1):
+            if common_foods[j] > common_foods[j + 1]:
+                temp = common_foods[j]
+                common_foods[j] = common_foods[j + 1]
+                common_foods[j + 1] = temp;
+                switches += 1
+        if switches == 0:
+            break
 
     return common_foods
 
@@ -143,7 +155,6 @@ def largest_n_items(items, n):
 
     # Implemented bubble sort
 
-    ordered = []
     N = len(items)
 
     for i in range(1, N):

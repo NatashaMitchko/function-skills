@@ -95,7 +95,6 @@ def foods_in_common(foods1, foods2):
             if f1 == f2 and f1 not in common_foods: 
                 common_foods.append(f1)
 
-# TODO: figure out how to order the items
     N = len(common_foods)
 
     for i in range(1, N):
@@ -104,7 +103,7 @@ def foods_in_common(foods1, foods2):
             if common_foods[j] > common_foods[j + 1]:
                 temp = common_foods[j]
                 common_foods[j] = common_foods[j + 1]
-                common_foods[j + 1] = temp;
+                common_foods[j + 1] = temp
                 switches += 1
         if switches == 0:
             break
@@ -163,7 +162,7 @@ def largest_n_items(items, n):
             if items[j] > items[j + 1]:
                 temp = items[j]
                 items[j] = items[j + 1]
-                items[j + 1] = temp;
+                items[j + 1] = temp
                 switches += 1
         if switches == 0:
             break

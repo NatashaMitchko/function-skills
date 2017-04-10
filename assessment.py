@@ -16,8 +16,11 @@ def all_odd(numbers):
         >>> all_odd([2, -6, 8])
         []
     """
-
-    return ['the wrong thing']
+    odd_number = []
+    for number in numbers:
+        if number % 2 == 1:
+            odd_number.append(number)
+    return odd_number
 
 
 def print_indices(items):
@@ -45,8 +48,8 @@ def print_indices(items):
         3 Volvo
     
     """
-
-    print("Nothing at all")
+    for i in range(len(items)):
+        print i, items[i]
 
 
 def foods_in_common(foods1, foods2):
@@ -84,7 +87,17 @@ def foods_in_common(foods1, foods2):
 
     """
 
-    return ['the wrong thing']
+    common_foods = [] # if no common foods this will remain empty list
+    # Loop the two lists over each other to find common foods
+    for f1 in foods1:
+        for f2 in foods2:
+            # if match between list AND unique to second list then add item
+            if f1 == f2 and f1 not in common_foods: 
+                common_foods.append(f1)
+
+# TODO: figure out how to order the items
+
+    return common_foods
 
 
 def every_other_item(items):
@@ -103,12 +116,11 @@ def every_other_item(items):
        ... )
        ['you', 'are', 'good', 'at', 'code']
     """
-
-    return ['the wrong thing']
+    return items[::2] # list slices are new lists
 
 
 def largest_n_items(items, n):
-    """Return the `n` largest integers in list, in ascending order.
+    """Return the `n` largest integers in list, in ascending order. small > big
 
     You can assume that `n` will be less than the length of the list.
 
@@ -129,7 +141,26 @@ def largest_n_items(items, n):
         [3, 3]
     """
 
-    return []
+    # Implemented bubble sort
+
+    ordered = []
+    N = len(items)
+
+    for i in range(1, N):
+        switches = 0
+        for j in range(0, N-1):
+            if items[j] > items[j + 1]:
+                temp = items[j]
+                items[j] = items[j + 1]
+                items[j + 1] = temp;
+                switches += 1
+        if switches == 0:
+            break
+
+    if n != 0:
+        return items[-n:]
+    else:
+        return []
 
 
 #####################################################################
